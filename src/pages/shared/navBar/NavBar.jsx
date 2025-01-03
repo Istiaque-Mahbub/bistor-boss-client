@@ -17,7 +17,7 @@ const NavBar = () => {
     <li><NavLink to='/order/salads'>Order Food</NavLink></li>
     <li><NavLink to='/secret'>Secret</NavLink></li>
     <li>
-      <Link to='/'>
+      <Link to='/dashboard/cart'>
         <button className="btn btn-sm">
           <FaCartArrowDown></FaCartArrowDown>
           <div className="badge text-sm badge-secondary">{cart.length}</div>

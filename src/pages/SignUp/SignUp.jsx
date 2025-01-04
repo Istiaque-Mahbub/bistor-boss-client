@@ -3,9 +3,12 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic()
   const {
     register,
     handleSubmit,
@@ -18,17 +21,34 @@ const SignUp = () => {
     creteUser(data.email,data.password)
     .then(res=>{
       const user = res.user;
-      console.log(user)
       setUser(user)
       updateUserProfile(data.name,data.photoURL)
       .then(res=>{
-        console.log('Profile updated')
-        navigate('/')
+        // create user entry in the database
+        const userInfo = {
+          name : data.name,
+          email : data.email
+        }
+        axiosPublic.post('/users',userInfo)
+        .then(res=>{
+          reset();
+          if(res.data.insertedId){
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "User Created Successfully!",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            navigate('/')
+          }
+        })
+        
       })
       .catch(err=>console.log(err.message))
     })
-    console.log(data)
-    reset();
+  
+    
   }
 
   return (

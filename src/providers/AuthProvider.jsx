@@ -43,7 +43,7 @@ const AuthProvider = ({children}) => {
             setUser(currentUser);
             if(currentUser){
                 // get token and store client side
-                const userInfo = currentUser.email;
+                const userInfo = currentUser?.email;
                 axiosPublic.post('/jwt',userInfo)
                 .then(res=>{
                     if(res.data.token){
@@ -59,7 +59,7 @@ const AuthProvider = ({children}) => {
         return ()=>{
            return unsubscribe();
         }
-    },[])
+    },[axiosPublic])
 
     const authInfo ={
        user,setUser,loading,setLoading,creteUser,signIn,logOut,updateUserProfile,googleSignIn

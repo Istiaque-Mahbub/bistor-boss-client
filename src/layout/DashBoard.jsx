@@ -10,7 +10,7 @@ import useAdmin from '../hooks/useAdmin';
 
 const DashBoard = () => {
     const [cart] = useCart();
-    // TODO:get isAdmin value from the database
+    // get isAdmin value from the database
     const [isAdmin] = useAdmin();
     return (
         <div className='flex'>

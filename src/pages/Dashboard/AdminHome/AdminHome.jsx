@@ -31,7 +31,7 @@ const AdminHome = () => {
                         <img src={imgRevenue} alt="" />
                     </div>
                     <div className="stat-title">Revenue</div>
-                    <div className="stat-value">{stats.revenue}</div>
+                    <div className="stat-value">{stats?.revenue}</div>
                     
                 </div>
 
@@ -40,7 +40,7 @@ const AdminHome = () => {
                         <img src={imgUser} alt="" />
                     </div>
                     <div className="stat-title">Customers</div>
-                    <div className="stat-value">{stats.users}</div>
+                    <div className="stat-value">{stats?.users}</div>
                 </div>
 
                 <div className="stat">
@@ -48,7 +48,7 @@ const AdminHome = () => {
                         <img src={imgMenuItems} alt="" />
                     </div>
                     <div className="stat-title">Menu Items</div>
-                    <div className="stat-value">{stats.menuItems}</div>
+                    <div className="stat-value">{stats?.menuItems}</div>
                 </div>
 
                 <div className="stat">
@@ -56,7 +56,7 @@ const AdminHome = () => {
                         <img src={imgOrders} alt="" />
                     </div>
                     <div className="stat-title">Orders</div>
-                    <div className="stat-value">{stats.orders}</div>
+                    <div className="stat-value">{stats?.orders}</div>
                     
                 </div>
             </div>
